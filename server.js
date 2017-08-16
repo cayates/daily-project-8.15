@@ -24,6 +24,7 @@ app.get('/robots', function (request, response) {
     } else {
       response.send('NO ROBOTS!!!')
     }
+    console.log(chosenRobot);
   })
 
 app.set('port', 3000);
