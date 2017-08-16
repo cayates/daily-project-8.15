@@ -8,7 +8,7 @@ function getRobots () {
 function getRobot (robotId) {
     let chosenRobot = {}
     for (let i = 0; i < robotInfo.length; i++) {
-      if (robotInfo[i].id = robotId) {
+      if (robotInfo[i].id == robotId) {
         chosenRobot = robotInfo[i]
       }
       console.log(chosenRobot);
