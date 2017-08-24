@@ -12,12 +12,21 @@ function getAllDocs (err, db) {
   })
 }
 
+function getRobot (robotId) {
+    connectMongodb(url, getAllDocs)
+    for (let i =0; i < robots.length; i++){
+      if (robots[i].id == robotId) {
+        return robots[i]
+      }
+    }
+  }
+
 function getAllRobots () {
   return new Promise((resolve, reject) => {
     MongoClient.connect(url, function (err, db) {
       const collection = db.collection('robots')
       collection.find({}).toArray(function (err, docs) {
-        console.log(docs)
+        // console.log(docs)
         resolve(docs)
         reject(err)
       })
@@ -33,9 +42,8 @@ function connectMongodb (url, cb) {
 
 function getRobots () {
   connectMongodb(url, getAllDocs)
-  console.log(robots)  
   return robots;
 }
 
-module.exports = { getRobots, getAllRobots }
+module.exports = { getRobots, getAllRobots, getRobot }
 
